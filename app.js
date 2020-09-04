@@ -25,6 +25,8 @@ console.log(`
                         Team Management
             Follow prompts to add members to your team
 ==============================================================
+                        New Team Member
+==============================================================
 `);
 getTeamMember();
 

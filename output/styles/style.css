@@ -1,0 +1,21 @@
+body {
+    padding-bottom: 100px;
+}
+
+#team-header-div {
+    text-align: center;
+}
+
+#team-banner {
+    background-image: url(./assets/team-image-1.jpg);
+    margin-top: 20px;
+    height: 485px;
+}
+
+.team-name {
+    margin: 50px;
+}
+
+.employee-card {
+    margin: 10px;
+}
