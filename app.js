@@ -15,6 +15,7 @@ var newName = "";
 var newID = "";
 var newEmail = "";
 var newRole  = "";
+var newOther = "";
 
 // Initiate the program
 console.log(`
@@ -79,6 +80,56 @@ function getRole() {
       }]).then(function({ role }) {
           console.log(role);
           newRole = role;
+          switch (role) {
+              case "Manager":
+                  setOfficeNumber();
+                  break;
+              case "Engineer":
+                  setGitHub();
+                  break;
+              case "Intern":
+                  setSchool();
+              default:
+                  "Hmmm, that's not supposed to happen...";
+          }
+      });
+}
+
+function setOfficeNumber() {
+    inquirer
+    .prompt([
+      {
+          message: "Office Number: ",
+          name: "oNumber"
+      }]).then(function({ oNumber }) {
+          console.log(oNumber);
+          newOther = oNumber;
+          completeEmployee();
+      });
+}
+
+function setGitHub() {
+    inquirer
+    .prompt([
+      {
+          message: "GitHub Username: ",
+          name: "github"
+      }]).then(function({ github }) {
+          console.log(github);
+          newOther = github;
+          completeEmployee();
+      });
+}
+
+function setSchool() {
+    inquirer
+    .prompt([
+      {
+          message: "School Name: ",
+          name: "school"
+      }]).then(function({ school }) {
+          console.log(school);
+          newOther = school;
           completeEmployee();
       });
 }
@@ -103,6 +154,10 @@ function completeEmployee() {
               console.log('All Team Members Have been Added!');
           }
       });
+}
+
+function buildEmployeeClass() {
+
 }
 
 /* After the user has input all employees desired, call the `render` function (required
