@@ -17,6 +17,8 @@ var newEmail = "";
 var newRole  = "";
 var newOther = "";
 
+var teamMembers = [];
+
 // Initiate the program
 console.log(`
 ==============================================================
@@ -154,18 +156,19 @@ function buildEmployeeObject() {
     switch (newRole) {
         case "Manager":
             var newManager = new Manager(newName, newID, newEmail, newOther);
+            teamMembers.push(newManager);
             break;
         case "Engineer":
             const newEngineer = new Engineer(newName, newID, newEmail, newOther);
+            teamMembers.push(newEngineer);
             break;
         case "Intern":
             const newIntern = new Intern(newName, newID, newEmail, newOther);
+            teamMembers.push(newIntern);
         default:
             "Hmmm, that's not supposed to happen...";
     }
-    console.log(newManager);
-    console.log(newEngineer);
-    console.log(newIntern);
+    console.log(teamMembers);
 }
 
 /* After the user has input all employees desired, call the `render` function (required
