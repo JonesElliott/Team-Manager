@@ -58,7 +58,18 @@ function getEmail() {
       });
 }
 
-
+function getRole() {
+    inquirer
+    .prompt([
+      {
+        type: 'list',
+        message: "Selected Employee's Role",
+        choices: ["Manager", "Engineer", "Intern"],
+        name: "role"
+      }]).then(function({ role }) {
+          console.log(role);
+      });
+}
 
 /* After the user has input all employees desired, call the `render` function (required
  above) and pass in an array containing all employee objects; the `render` function will
