@@ -46,6 +46,18 @@ function getID() {
       });
 }
 
+function getEmail() {
+    inquirer
+    .prompt([
+      {
+          message: "Email Address: ",
+          name: "email"
+      }]).then(function({ email }) {
+          console.log(email);
+          getRole();
+      });
+}
+
 
 
 /* After the user has input all employees desired, call the `render` function (required
