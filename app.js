@@ -37,7 +37,6 @@ function getTeamMember() {
             message: "Name: ",
             name: "name"
         }]).then(function({ name }) {
-            console.log(name);
             newName = name;
             getID();
         });
@@ -50,7 +49,6 @@ function getID() {
           message: "ID #: ",
           name: "id"
       }]).then(function({ id }) {
-          console.log(id);
           newID = id;
           getEmail();
       });
@@ -63,7 +61,6 @@ function getEmail() {
           message: "Email Address: ",
           name: "email"
       }]).then(function({ email }) {
-          console.log(email);
           newEmail = email;
           getRole();
       });
@@ -78,7 +75,6 @@ function getRole() {
         choices: ["Manager", "Engineer", "Intern"],
         name: "role"
       }]).then(function({ role }) {
-          console.log(role);
           newRole = role;
           switch (role) {
               case "Manager":
@@ -102,7 +98,6 @@ function setOfficeNumber() {
           message: "Office Number: ",
           name: "oNumber"
       }]).then(function({ oNumber }) {
-          console.log(oNumber);
           newOther = oNumber;
           completeEmployee();
       });
@@ -115,7 +110,6 @@ function setGitHub() {
           message: "GitHub Username: ",
           name: "github"
       }]).then(function({ github }) {
-          console.log(github);
           newOther = github;
           completeEmployee();
       });
@@ -128,13 +122,13 @@ function setSchool() {
           message: "School Name: ",
           name: "school"
       }]).then(function({ school }) {
-          console.log(school);
           newOther = school;
           completeEmployee();
       });
 }
 
 function completeEmployee() {
+    buildEmployeeObject();
     inquirer
     .prompt([
       {
@@ -156,8 +150,22 @@ function completeEmployee() {
       });
 }
 
-function buildEmployeeClass() {
-
+function buildEmployeeObject() {
+    switch (newRole) {
+        case "Manager":
+            var newManager = new Manager(newName, newID, newEmail, newOther);
+            break;
+        case "Engineer":
+            const newEngineer = new Engineer(newName, newID, newEmail, newOther);
+            break;
+        case "Intern":
+            const newIntern = new Intern(newName, newID, newEmail, newOther);
+        default:
+            "Hmmm, that's not supposed to happen...";
+    }
+    console.log(newManager);
+    console.log(newEngineer);
+    console.log(newIntern);
 }
 
 /* After the user has input all employees desired, call the `render` function (required
