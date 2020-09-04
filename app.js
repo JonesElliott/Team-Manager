@@ -147,11 +147,6 @@ function completeEmployee() {
               `);
               getTeamMember();
           } else {
-              console.log(`
-==============================================================
-               All Employees Saved Succesfully
-==============================================================
-              `);
               getHTML();
           }
       });
@@ -180,10 +175,15 @@ function buildEmployeeObject() {
  generate and return a block of HTML including templated divs for each employee! */
 
 async function getHTML() {
-    const newHTML = await render(teamMembers);
-    console.log(newHTML);
+    try {
+        const newHTML = await render(teamMembers);
+        // console.log(newHTML);
+        createHTML(newHTML);
+    } catch {
+        console.log("Oh no! The stars were not aligned properly");
+    }
+    
 }
-
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
@@ -191,19 +191,19 @@ async function getHTML() {
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
-// function createHTML() {
-//     fs.writeFile("./output/team.html", CREATERDHTML, function(err) {
-//         if (err) {
-//           return console.log(err);
-//         }
-//         console.log(`
-// ==============================================================
-//             Team Web Page Succesfuly Created
-//                     Check Output folder
-// ==============================================================
-//         `);
-//     });
-// }
+function createHTML(newHTML) {
+    fs.writeFile(outputPath, newHTML, function(err) {
+        if (err) {
+          return console.log(err);
+        }
+        console.log(`
+==============================================================
+                      Team Assembled!
+  You can find your Team Managment page in the output folder
+==============================================================
+        `);
+    });
+}
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
