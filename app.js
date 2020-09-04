@@ -10,6 +10,12 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// Employee variables
+var newName = "";
+var newID = "";
+var newEmail = "";
+var newRole  = "";
+
 // Initiate the program
 console.log(`
 ==============================================================
@@ -31,6 +37,7 @@ function getTeamMember() {
             name: "name"
         }]).then(function({ name }) {
             console.log(name);
+            newName = name;
             getID();
         });
 }
@@ -43,6 +50,7 @@ function getID() {
           name: "id"
       }]).then(function({ id }) {
           console.log(id);
+          newID = id;
           getEmail();
       });
 }
@@ -55,6 +63,7 @@ function getEmail() {
           name: "email"
       }]).then(function({ email }) {
           console.log(email);
+          newEmail = email;
           getRole();
       });
 }
@@ -69,6 +78,7 @@ function getRole() {
         name: "role"
       }]).then(function({ role }) {
           console.log(role);
+          newRole = role;
           completeEmployee();
       });
 }
