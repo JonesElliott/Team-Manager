@@ -10,6 +10,13 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// Initiate the program
+console.log(`
+==============================================================
+                        Team Management
+            Follow prompts to add members to your team
+==============================================================
+`);
 getTeamMember();
 
 /* Write code to use inquirer to gather information about the development team members,
@@ -17,12 +24,6 @@ and to create objects for each team member (using the correct classes as bluepri
 
 // Request any badge(s)
 function getTeamMember() {
-    console.log(`
-==============================================================
-                        Team Management
-            Follow prompts to add members to your team
-==============================================================
-`);
     inquirer
       .prompt([
         {
@@ -68,6 +69,29 @@ function getRole() {
         name: "role"
       }]).then(function({ role }) {
           console.log(role);
+          completeEmployee();
+      });
+}
+
+function completeEmployee() {
+    inquirer
+    .prompt([
+      {
+        type: 'list',
+        message: "Do you want to add Another Team Member?",
+        choices: ["Yes", "No"],
+        name: "choice"
+      }]).then(function({ choice }) {
+          if (choice === "Yes") {
+              console.log(`
+==============================================================
+                       New Team Member
+==============================================================
+              `);
+              getTeamMember();
+          } else {
+              console.log('All Team Members Have been Added!');
+          }
       });
 }
 
