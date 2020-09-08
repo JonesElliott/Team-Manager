@@ -22,8 +22,13 @@ var teamMembers = [];
 // Initiate the program
 console.log(`
 ==============================================================
-                        Team Management
-            Follow prompts to add members to your team
+                        Team Manager
+                   Build. Manage. Succeed
+
+Follow on screen prompts to add employees to your project team
+==============================================================
+
+
 ==============================================================
                         New Team Member
 ==============================================================
@@ -33,7 +38,6 @@ getTeamMember();
 /* Write code to use inquirer to gather information about the development team members,
 and to create objects for each team member (using the correct classes as blueprints!) */
 
-// Request any badge(s)
 function getTeamMember() {
     inquirer
       .prompt([
@@ -200,7 +204,8 @@ function createHTML(newHTML) {
         }
         console.log(`
 ==============================================================
-                      Team Assembled!
+                Team Assembled Successfully!
+
   You can find your Team Managment page in the output folder
 ==============================================================
         `);
