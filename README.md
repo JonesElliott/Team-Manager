@@ -12,7 +12,6 @@ A command line application that generates an HTML file to assist in organizing e
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contributing](#contributing)
-* [Tests](#tests)
 * [Support](#support)
 * [License](#license)
 
