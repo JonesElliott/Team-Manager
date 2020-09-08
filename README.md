@@ -32,6 +32,8 @@ From the program's root folder (./Team-Manger/), execute the app.js file using n
 
 ![console example](./assets/console-example.PNG)
 
+![site example](./assets/site-example.PNG)
+
 The generated file is saved in (./Team-Manager/output/team.html) and is overwritten each time the program is run.
 
 ## Contributing
