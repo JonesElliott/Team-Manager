@@ -1,8 +1,6 @@
 
 # Team Manager
 
-![Demo Site]()
-
 ![issue tracker badge](https://img.shields.io/github/issues/JonesElliott/README-Generator?style=plastic) ![top language](https://img.shields.io/github/languages/top/JonesElliott/Team-Manager) ![shields.io badge](https://img.shields.io/badge/License-MIT-green)
 
 ## Description
